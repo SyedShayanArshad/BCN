@@ -21,7 +21,7 @@ export const authOptions = {
             credentials.password === "12345"
           ) {
             return {
-              id: "admin-id",
+              id: "x7mqa9v2fdkp43zylc8wbotsn5",
               username: "admin",
               name: "Admin User",
               role: "admin",
