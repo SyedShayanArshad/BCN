@@ -3,7 +3,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { FaRegEdit } from "react-icons/fa";
 import CustomerForm from "./CustomerForm";
 import {Noto_Nastaliq_Urdu} from 'next/font/google'
-const urduFontClass = Noto_Nastaliq_Urdu();
+const urduFontClass = Noto_Nastaliq_Urdu({ subsets: ['arabic'] });
 import ReactDOM from "react-dom"; 
 function CustomerItem({ Customer, onCustomerUpdated }) {
   const [isEdit, setIsEdit] = useState(false);

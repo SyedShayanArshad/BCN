@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { FaSave, FaSearch } from 'react-icons/fa';
 import { Noto_Nastaliq_Urdu } from 'next/font/google'
 import Loading from './Loading';
-const urduFontClass = Noto_Nastaliq_Urdu();
+const urduFontClass = Noto_Nastaliq_Urdu({ subsets: ['arabic'] });
 
 const AddCustomerInPayment = ({ customer, onClose, onSubmit }) => {
   const [formData, setFormData] = useState(
