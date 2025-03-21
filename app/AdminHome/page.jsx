@@ -30,10 +30,6 @@ export default function page() {
     <div className="min-h-screen dark:bg-gray-900 py-10 px-4 sm:px-6 lg:px-8 relative">
       <div className="flex justify-between items-center mb-8">
         <h1 className="font-semibold text-xl">Admin Dashboard</h1>
-        <button className="flex items-center gap-4 bg-black text-white border border-white rounded-md p-3 hover:bg-gray-800 transition-all">
-          <FaPlus />
-          <p>Generate Report</p>
-        </button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
