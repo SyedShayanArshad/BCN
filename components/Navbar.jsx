@@ -3,7 +3,6 @@ import React from "react";
 import { useSession, signOut } from "next-auth/react";
 import { ModeToggle } from "./ModeToggle";
 import { FaCircleUser } from "react-icons/fa6";
-import { FaSyncAlt } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
 import { usePathname } from "next/navigation";
 

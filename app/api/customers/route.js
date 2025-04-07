@@ -6,11 +6,6 @@ export async function GET() {
   try {
     await connectToDatabase();
     console.log("DB connected successfully");
-    function factorial(n) {
-      if (n === 0 || n === 1) return 1;
-      return n * factorial(n - 1);
-    }
-    console.log("Factorial of 5:", factorial(5));
     const customers = await Customer.find().populate("area");
     return NextResponse.json(customers);
   } catch (error) {
