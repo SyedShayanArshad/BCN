@@ -9,7 +9,7 @@ export default function page() {
   const [cashierCount, setCashierCount] = useState(null);
   const [areaCount, setAreaCount] = useState(null);
 
-  useEffect(() => {
+  useEffect(() => { 
     const fetchData = async (url, setter) => {
       try {
         const response = await fetch(url);
