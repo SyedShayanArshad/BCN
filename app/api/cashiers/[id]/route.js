@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server';
 import { Cashier } from '@/models/cashier.model';
 import bcryptjs from 'bcryptjs';
 import { connectToDatabase } from '@/lib/db';
+import mongoose from 'mongoose';
 
 // Connect to database
 connectToDatabase();
@@ -12,7 +13,25 @@ connectToDatabase();
 export async function PUT(request, { params }) {
   try {
     const { username, password, name } = await request.json();
+    if (!mongoose.Types.ObjectId.isValid(params.id)) {
+      return NextResponse.json({ message: 'Invalid ID format' }, { status: 400 });
+    }
+    
+    if (username && typeof username !== 'string') {
+      return NextResponse.json({ message: 'Invalid username' }, { status: 400 });
+    }
+    
     const updateData = { username, name };
+
+    // ✅ Validate the ID from the route
+    if (!mongoose.Types.ObjectId.isValid(params.id)) {
+      return NextResponse.json({ message: 'Invalid ID format' }, { status: 400 });
+    }
+
+    // ✅ Validate that username is a string (prevents NoSQL injection)
+    if (username && typeof username !== 'string') {
+      return NextResponse.json({ message: 'Invalid username' }, { status: 400 });
+    }
 
     // If password provided, hash it
     if (password) {
@@ -20,10 +39,10 @@ export async function PUT(request, { params }) {
       updateData.password = await bcryptjs.hash(password, salt);
     }
 
-    // Check if new username exists
+    // Check if new username already exists (excluding the current user)
     if (username) {
       const existingCashier = await Cashier.findOne({
-        username,
+        username: username.trim(),
         _id: { $ne: params.id }
       });
       if (existingCashier) {
@@ -55,6 +74,7 @@ export async function PUT(request, { params }) {
     );
   }
 }
+
 
 export async function DELETE(request, { params }) {
   try {
