@@ -51,7 +51,7 @@ export async function DELETE(request, { params }) {
     await connectToDatabase();
     const deletedCustomer = await Customer.findByIdAndDelete(params.id);
     if(deletedCustomer){
-      await Area.findByIdAndUpdate(customer.area, { $inc: { customerCount: -1 } });
+      await Area.findByIdAndUpdate(deletedCustomer.area, { $inc: { customerCount: -1 } });
         }
     if (!deletedCustomer) {
       return NextResponse.json({ error: "Customer not found" }, { status: 404 });

@@ -1,7 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { FaUsers, FaUserTie, FaDollarSign, FaPlus } from "react-icons/fa";
+import { FaUsers, FaUserTie, FaDollarSign } from "react-icons/fa";
 import { MdPlace } from "react-icons/md";
 export default function page() {
   const router = useRouter();

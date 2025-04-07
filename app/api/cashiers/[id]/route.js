@@ -2,7 +2,6 @@
 import { NextResponse } from 'next/server';
 import { Cashier } from '@/models/cashier.model';
 import bcryptjs from 'bcryptjs';
-import jwt from 'jsonwebtoken';
 import { connectToDatabase } from '@/lib/db';
 
 // Connect to database
